@@ -12,7 +12,7 @@ class CampusService {
     }
 
     async create(number) {
-        return this.prisma.campus.create({data: {number}})
+        return this.prisma.campus.create({data: {number: +number}})
     }
 
     async update(id, number) {

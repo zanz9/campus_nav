@@ -1,3 +1,5 @@
+import ClassroomService from "../service/ClassroomService.js";
+
 class ClassroomController {
 
     async getAll(req, res, next) {
@@ -21,8 +23,8 @@ class ClassroomController {
 
     async create (req, res, next) {
         try {
-            const {number} = req.body
-            const classroom = await ClassroomService.create(number)
+            const {number, teacher_id, level_id} = req.body
+            const classroom = await ClassroomService.create(number, teacher_id, level_id)
             return res.json(classroom)
         } catch (e) {
             next(e)
@@ -32,8 +34,8 @@ class ClassroomController {
     async update (req, res, next) {
         try {
             const {id} = req.params
-            const {number} = req.body
-            const classroom = await ClassroomService.update(+id, number)
+            const {number, teacher_id} = req.body
+            const classroom = await ClassroomService.update(+id, number, teacher_id)
             return res.json(classroom)
         } catch (e) {
             next(e)

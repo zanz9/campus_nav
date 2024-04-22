@@ -1,6 +1,7 @@
+import {PrismaClient} from "@prisma/client";
+
 class CorpusService {
     db = new PrismaClient()
-  //get all
 
     async getAll() {
         return this.db.corpus.findMany()
@@ -11,11 +12,11 @@ class CorpusService {
     }
 
     async create(campus_id, number) {
-        return this.db.corpus.create({data: {campus_id, number}})
+        return this.db.corpus.create({data: {campus_id: +campus_id, number: +number}})
     }
 
     async update(id, campus_id, number) {
-        return this.db.corpus.update({where: {id: +id}, data: {campus_id, number}})
+        return this.db.corpus.update({where: {id: +id}, data: {campus_id: +campus_id, number: +number}})
     }
 
     async delete(id) {
