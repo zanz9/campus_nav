@@ -1,3 +1,4 @@
+
 export default class TeacherDto {
     id
     email
