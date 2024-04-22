@@ -3,6 +3,11 @@ import {mdiEye, mdiEyeOff} from '@mdi/js';
 import {reactive, ref} from 'vue'
 import api from "../../api/api.js";
 
+const message = ref({
+  text: '',
+  show: false,
+})
+
 const visible = ref(false)
 const form = reactive({
   email: '',
@@ -10,7 +15,13 @@ const form = reactive({
 })
 
 async function login() {
-  const {data} = await api.post('/auth/login', form)
+  try {
+    const {data} = await api.post('/auth/login', form)
+    console.log(data)
+  } catch (e) {
+    message.value.text = e.response.data.message
+    message.value.show = true
+  }
   console.log(data)
 }
 </script>
@@ -58,6 +69,8 @@ async function login() {
                 @click:append-inner="visible = !visible"
                 v-model="form.password"
             ></v-text-field>
+
+            <div v-if="message.show">{{message.text}}</div>
 
             <v-card
                 class="mb-12"
