@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Teacher {
+  id        Int    @id @default(autoincrement())
+  email     String
+  password  String
+  firstName String
+  lastName  String
+
+  classroom Classroom?
+}
+
+model Campus {
+  id     Int @id @default(autoincrement())
+  number Int
+
+  corpus Corpus[]
+}
+
+model Corpus {
+  id     Int @id @default(autoincrement())
+  number Int
+
+  campus_id Int
+  campus    Campus  @relation(fields: [campus_id], references: [id])
+  level     Level[]
+  bus       Bus[]
+}
+
+model Level {
+  id     Int @id @default(autoincrement())
+  number Int
+
+  corpus_id Int
+  corpus    Corpus      @relation(fields: [corpus_id], references: [id])
+  classroom Classroom[]
+  cafeteria Cafeteria[]
+}
+
+model Classroom {
+  id     Int @id @default(autoincrement())
+  number Int
+
+  level_id Int
+  level    Level @relation(fields: [level_id], references: [id])
+
+  teacher_id Int?     @unique
+  teacher    Teacher? @relation(fields: [teacher_id], references: [id])
+}
+
+model Cafeteria {
+  id       Int   @id @default(autoincrement())
+  level_id Int
+  level    Level @relation(fields: [level_id], references: [id])
+}
+
+model Bus {
+  id          Int     @id @default(autoincrement())
+  number      Int
+  address     String
+  address_uri String?
+
+  corpus_id Int
+  corpus    Corpus @relation(fields: [corpus_id], references: [id])
+}
