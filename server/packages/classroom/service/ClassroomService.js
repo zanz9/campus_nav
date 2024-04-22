@@ -25,8 +25,14 @@ class ClassroomService {
         })
     }
 
-    async update(id, number) {
-        return this.prisma.classroom.update({where: {id: +id}, data: {number}})
+    async update(id, number, teacher_id) {
+        const now = Date.now()
+        return this.prisma.classroom.update({
+            where: {id: +id},
+            data: {
+                number, teacher_id, teacher_timestamp: now
+            }
+        })
     }
 
     async delete(id) {

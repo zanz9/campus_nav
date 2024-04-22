@@ -1,4 +1,4 @@
-import {BusService} from "./BusService.js";
+import BusService from "./BusService.js";
 class BusController{
 
     async getAll(req, res, next) {
@@ -48,3 +48,5 @@ class BusController{
         }
     }
 }
+
+export default new BusController()

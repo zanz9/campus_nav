@@ -34,8 +34,8 @@ class ClassroomController {
     async update (req, res, next) {
         try {
             const {id} = req.params
-            const {number} = req.body
-            const classroom = await ClassroomService.update(+id, number)
+            const {number, teacher_id} = req.body
+            const classroom = await ClassroomService.update(+id, number, teacher_id)
             return res.json(classroom)
         } catch (e) {
             next(e)

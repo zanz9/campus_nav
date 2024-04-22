@@ -1,3 +1,4 @@
+import {PrismaClient} from "@prisma/client";
 class BusService{
     db = new PrismaClient()
     async getAll() {
@@ -41,3 +42,5 @@ class BusService{
         })
     }
 }
+
+export default new BusService()
