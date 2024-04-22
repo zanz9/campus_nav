@@ -1,9 +1,9 @@
-class CampusController {
-    // get all, get by id, create, update, delete
+import CampusService from "../service/CampusService.js";
 
+class CampusController {
     async getAll(req, res, next) {
         try {
-            const campuses = await CampusService.getCampuses()
+            const campuses = await CampusService.getAll()
             return res.json(campuses)
         } catch (e) {
             next(e)
@@ -23,7 +23,7 @@ class CampusController {
     async create (req, res, next) {
         try {
             const {number} = req.body
-            const campus = await CampusService.create(number)
+            const campus = await CampusService.create(+number)
             return res.json(campus)
         } catch (e) {
             next(e)

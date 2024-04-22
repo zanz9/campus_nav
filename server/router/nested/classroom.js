@@ -3,7 +3,7 @@ import ClassroomController from "../../packages/classroom/controller/ClassroomCo
 const classroomRouter = Router()
 
 classroomRouter.get('/', ClassroomController.getAll)
-classroomRouter.get('/:id', ClassroomController.get)
+classroomRouter.get('/:id', ClassroomController.getClassroom)
 classroomRouter.post('/', ClassroomController.create)
 classroomRouter.put('/:id', ClassroomController.update)
 classroomRouter.delete('/:id', ClassroomController.delete)

@@ -1,6 +1,6 @@
-class CorpusController {
-   // get all, get by id, create, update, delete
+import CorpusService from "../service/CorpusService.js";
 
+class CorpusController {
     async getAll(req, res, next) {
         try {
             const corpus = await CorpusService.getAll()
