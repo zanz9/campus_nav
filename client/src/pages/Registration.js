@@ -31,30 +31,30 @@ export default function Register() {
 
     return (
         <div className="text-center m-5-auto">
-            <h2>Join us</h2>
-            <h5>Create your personal account</h5>
+            <h2>Присоединяйтесь к нам</h2>
+            <h5>Создайте свой личный аккаунт</h5>
             <form onSubmit={handleSubmit}>
                 <p>
-                    <label>Username</label><br/>
+                    <label>Имя пользователя</label><br/>
                     <input type="text" name="username" value={formData.username} onChange={handleChange} required />
                 </p>
                 <p>
-                    <label>Email address</label><br/>
+                    <label>Почта</label><br/>
                     <input type="email" name="email" value={formData.email} onChange={handleChange} required />
                 </p>
                 <p>
-                    <label>Password</label><br/>
+                    <label>Пароль</label><br/>
                     <input type="password" name="password" value={formData.password} onChange={handleChange} required />
                 </p>
                 <p>
-                    <input type="checkbox" name="agreed" id="checkbox" checked={formData.agreed} onChange={handleChange} required /> <span>I agree all statements in <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms of service</a></span>.
+                    <input type="checkbox" name="agreed" id="checkbox" checked={formData.agreed} onChange={handleChange} required /> <span>Я согласен со всеми утверждениями в <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms of service</a></span>.
                 </p>
                 <p>
-                    <button id="sub_btn" type="submit" className='bg-blue-900'>Register</button>
+                    <button id="sub_btn" type="submit" className='bg-blue-900'>Регистрация</button>
                 </p>
             </form>
             <footer>
-                <p><Link to="/">Back to Homepage</Link>.</p>
+                <p><Link to="/">Вернуться на главную страницу</Link>.</p>
             </footer>
         </div>
     )

@@ -27,25 +27,25 @@ export default function Login() {
 
     return (
         <div className="text-center m-5-auto">
-            <h2>Sign in to us</h2>
+            <h2>Войти в систему </h2>
             <form onSubmit={handleSubmit}>
                 <p>
-                    <label>Username or email address</label><br/>
+                    <label>Имя пользователя или адрес электронной почты</label><br/>
                     <input type="text" name="username" value={formData.username} onChange={handleChange} required />
                 </p>
                 <p>
-                    <label>Password</label>
-                    <Link to="/forget-password"><label className="right-label">Forget password?</label></Link>
+                    <label>Пароль</label>
+                    <Link to="/forget-password"><label className="right-label">Забыли пароль?</label></Link>
                     <br/>
                     <input type="password" name="password" value={formData.password} onChange={handleChange} required />
                 </p>
                 <p>
-                    <button id="sub_btn" type="submit" className='bg-blue-900'>Login</button>
+                    <button id="sub_btn" type="submit" className='bg-blue-900'>Логин</button>
                 </p>
             </form>
             <footer>
-                <p>First time? <Link to="/register">Create an account</Link>.</p>
-                <p><Link to="/">Back to Homepage</Link>.</p>
+                <p>Первый раз? <Link to="/register">Создать аккаунт</Link>.</p>
+                <p><Link to="/">Вернуться на главную страницу</Link>.</p>
             </footer>
         </div>
     )
